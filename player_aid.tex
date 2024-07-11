@@ -1,0 +1,47 @@
+\documentclass[a5paper, parskip=half, DIV=17]{scrartcl}
+\usepackage{hexman}
+
+\RedeclareSectionCommand[
+  runin=false,
+  beforeskip=2.0\baselineskip,
+  afterskip=-0.0\baselineskip
+]{section}
+
+\usepackage{fontspec}
+\setmainfont{Tex Gyre Schola}
+
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{epsdice}
+
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\section*{Ghost Selection}
+Each round, two of the four ghosts will move. To determine which ghosts will move, roll the die and consult the following table:
+
+\begin{center}
+\begin{tabular}{c l l}\toprule
+Die & Ghost 1 & Ghost 2 \\\midrule
+\raisebox{-0.125ex}{\epsdice{1}} & Alice (red) & Bob (yellow) \\
+\raisebox{-0.125ex}{\epsdice{2}} & Alice (red) & Clyde (green) \\
+\raisebox{-0.125ex}{\epsdice{3}} & Alice (red) & Daryl (blue) \\
+\raisebox{-0.125ex}{\epsdice{4}} & Bob (yellow) & Clyde (green) \\
+\raisebox{-0.125ex}{\epsdice{5}} & Bob (yellow) & Daryl (blue) \\
+\raisebox{-0.125ex}{\epsdice{6}} & Clyde (green) & Daryl (blue) \\\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Ghost Movement}
+The movement rules for the ghosts are:
+\begin{itemize}[leftmargin=*]
+	\item If a ghost is at the same flower as the player, then they take one step towards the player via the shortest route. In the case of a tie, the ghost steps in the clockwise direction.
+	\item If a ghost is at a different flower than the player, then they will jump. Each ghost jumps differently.
+\begin{description}[leftmargin=*]
+	\item[Alice (red):] Move to the flower that matches Alice's hex number and the hex that matches the player's flower number.% That is, Alice moves from $(a_f, a_h)$ to $(a_h, p_f)$.
+	\item[Bob (yellow):] Move to the flower that matches Bob's hex number and the hex that matches the player's hex number.% That is, Bob moves from $(b_f, b_h)$ to $(b_h, p_h)$.
+	\item[Clyde (green):] Move to the flower that matches the player's flower number and the hex that matches Clyde's hex number.% That is, Clyde moves from $(c_f,c_h)$ to $(p_f, c_h)$.
+	\item[Daryl (blue):] Move to the flower that matches the player's hex number and the hex that matches Daryl's hex number.% That is, Daryl moves from $(d_f,d_h)$ to $(p_h, d_h)$.
+\end{description}
+\end{itemize}
+\end{document}

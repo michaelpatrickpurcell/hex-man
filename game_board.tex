@@ -1,0 +1,26 @@
+\documentclass[a4paper, 12pt, parskip=half]{scrartcl}
+\usepackage{hexman}
+\usepackage[margin=1.5cm]{geometry}
+
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\begin{tikzpicture}
+\pic[rotate=0, transform shape, xscale=0.9, yscale=0.9] at (0,0) {hexring};
+
+\node[text width=7cm, rotate=-90, transform shape, align=center, inner sep=0pt] at (3cm,-14cm) {%
+{\Huge Ghosts}\\[2ex]
+\begin{tabular}{r c c c c}
+	\epsdice{1} & = & A & \& & B\\[0.5ex]%
+	\epsdice{2} & = & A & \& & C\\[0.5ex]%
+	\epsdice{3} & = & A & \& & D\\[0.5ex]%
+	\epsdice{4} & = & B & \& & C\\[0.5ex]%
+	\epsdice{5} & = & B & \& & D\\[0.5ex]%
+	\epsdice{6} & = & C & \& & D%
+\end{tabular}%
+};
+\end{tikzpicture}
+
+%\Huge{Hex Man}
+\end{center}
+\end{document}
